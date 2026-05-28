@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen text-gray-300 flex bg-gray-900 font-body">
+  <div class="min-h-screen text-gray-700 dark:text-gray-300 flex bg-slate-100 dark:bg-gray-900 font-body transition-colors duration-300">
 
     <!-- ── MAIN ── -->
     <main class="flex-1 min-w-0 px-5 lg:px-10 py-8 overflow-auto">
@@ -8,9 +8,18 @@
       <section class="grid lg:grid-cols-3 gap-4 mb-8">
 
         <!-- Line Chart -->
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:80ms]">
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:80ms]
+        ">
           <div class="flex items-center justify-between mb-6">
-            <h2 class="font-display font-bold text-white">Revenue Overview</h2>
+            <h2 class="font-display font-bold text-gray-900 dark:text-white">Revenue Overview</h2>
             <div class="flex gap-1">
               <button
                 v-for="r in ['1W', '1M', '3M']"
@@ -20,7 +29,7 @@
                   'px-3 py-1 rounded-lg text-xs font-medium transition-all',
                   chartRange === r
                     ? 'bg-em text-black font-bold'
-                    : 'text-gray-500 hover:text-gray-300'
+                    : 'text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
                 ]"
               >{{ r }}</button>
             </div>
@@ -29,16 +38,25 @@
         </div>
 
         <!-- Donut -->
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 animate-fade-up [animation-delay:160ms]">
-          <h2 class="font-display font-bold text-white mb-6">Traffic Sources</h2>
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 animate-fade-up [animation-delay:160ms]
+        ">
+          <h2 class="font-display font-bold text-gray-900 dark:text-white mb-6">Traffic Sources</h2>
           <canvas ref="donutChart" height="160" class="mb-4 max-h-[220px]"></canvas>
           <ul class="space-y-2">
             <li v-for="(s, i) in sources" :key="i" class="flex items-center justify-between text-sm">
               <span class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-sm shrink-0" :style="{ background: s.color }"></span>
-                <span class="text-gray-400">{{ s.label }}</span>
+                <span class="text-gray-500 dark:text-gray-400">{{ s.label }}</span>
               </span>
-              <span class="text-white font-medium font-display">{{ s.pct }}%</span>
+              <span class="text-gray-900 dark:text-white font-medium font-display">{{ s.pct }}%</span>
             </li>
           </ul>
         </div>
@@ -48,15 +66,24 @@
       <section class="grid lg:grid-cols-5 gap-4 mb-8">
 
         <!-- Goals -->
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:80ms]">
-          <h2 class="font-display font-bold text-white mb-6">Q1 Goals</h2>
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:80ms]
+        ">
+          <h2 class="font-display font-bold text-gray-900 dark:text-white mb-6">Q1 Goals</h2>
           <ul class="space-y-5">
             <li v-for="(g, i) in goals" :key="i">
               <div class="flex justify-between text-sm mb-2">
-                <span class="text-gray-400">{{ g.label }}</span>
-                <span :class="g.pct >= 80 ? 'text-em' : 'text-gray-400'">{{ g.pct }}%</span>
+                <span class="text-gray-500 dark:text-gray-400">{{ g.label }}</span>
+                <span :class="g.pct >= 80 ? 'text-em' : 'text-gray-400 dark:text-gray-500'">{{ g.pct }}%</span>
               </div>
-              <div class="bg-em/10 h-1.5 rounded-full overflow-hidden">
+              <div class="bg-emerald-100 dark:bg-em/10 h-1.5 rounded-full overflow-hidden">
                 <div
                   class="h-full rounded-full bg-gradient-to-r from-em to-em/50 shadow-[0_0_8px_rgba(52,211,153,0.4)] transition-[width] duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)]"
                   :style="{ width: animated ? g.pct + '%' : '0%' }"
@@ -67,36 +94,45 @@
         </div>
 
         <!-- Top Products Table -->
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 lg:col-span-3 animate-fade-up [animation-delay:160ms] overflow-auto">
-          <h2 class="font-display font-bold text-white mb-6">Top Products</h2>
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 lg:col-span-3 animate-fade-up [animation-delay:160ms] overflow-auto
+        ">
+          <h2 class="font-display font-bold text-gray-900 dark:text-white mb-6">Top Products</h2>
           <table class="w-full text-sm">
             <thead>
               <tr class="text-left">
-                <th class="text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Product</th>
-                <th class="text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Sales</th>
-                <th class="text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Revenue</th>
-                <th class="text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Status</th>
+                <th class="text-gray-400 dark:text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Product</th>
+                <th class="text-gray-400 dark:text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Sales</th>
+                <th class="text-gray-400 dark:text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Revenue</th>
+                <th class="text-gray-400 dark:text-gray-600 font-medium pb-3 text-xs uppercase tracking-wider">Status</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-white/5">
-              <tr v-for="(p, i) in products" :key="i" class="group transition-colors">
-                <td class="py-3 pr-4 group-hover:bg-em/[0.04]">
+            <tbody class="divide-y divide-gray-100 dark:divide-white/5">
+              <tr v-for="(p, i) in products" :key="i" class="group transition-colors hover:bg-gray-50 dark:hover:bg-transparent">
+                <td class="py-3 pr-4 dark:group-hover:bg-em/[0.04]">
                   <div class="flex items-center gap-3">
                     <div
                       class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold font-display text-black"
                       :style="{ background: p.color }"
                     >{{ p.name[0] }}</div>
-                    <span class="text-white font-medium">{{ p.name }}</span>
+                    <span class="text-gray-900 dark:text-white font-medium">{{ p.name }}</span>
                   </div>
                 </td>
-                <td class="py-3 pr-4 text-gray-400 group-hover:bg-em/[0.04]">{{ p.sales.toLocaleString() }}</td>
-                <td class="py-3 pr-4 font-display font-semibold text-white group-hover:bg-em/[0.04]">${{ p.revenue }}</td>
-                <td class="py-3 group-hover:bg-em/[0.04]">
+                <td class="py-3 pr-4 text-gray-500 dark:text-gray-400 dark:group-hover:bg-em/[0.04]">{{ p.sales.toLocaleString() }}</td>
+                <td class="py-3 pr-4 font-display font-semibold text-gray-900 dark:text-white dark:group-hover:bg-em/[0.04]">${{ p.revenue }}</td>
+                <td class="py-3 dark:group-hover:bg-em/[0.04]">
                   <span :class="[
                     'text-xs px-2.5 py-1 rounded-full font-medium',
-                    p.trend === 'up'   ? 'bg-em/[0.12] text-em' :
-                    p.trend === 'down' ? 'bg-red-500/[0.12] text-red-400' :
-                                         'bg-white/[0.06] text-gray-400'
+                    p.trend === 'up'   ? 'bg-emerald-100 dark:bg-em/[0.12] text-emerald-700 dark:text-em' :
+                    p.trend === 'down' ? 'bg-red-100 dark:bg-red-500/[0.12] text-red-600 dark:text-red-400' :
+                                         'bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-gray-400'
                   ]">
                     {{ p.trend === 'up' ? '↑ Growing' : p.trend === 'down' ? '↓ Falling' : '→ Stable' }}
                   </span>
@@ -110,23 +146,41 @@
       <!-- Grouped Bar + Multi-Line -->
       <section class="grid lg:grid-cols-2 gap-4 mb-8">
 
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 animate-fade-up [animation-delay:80ms]">
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 animate-fade-up [animation-delay:80ms]
+        ">
           <div class="flex items-center justify-between mb-1">
-            <h2 class="font-display font-bold text-white">Sales by Channel</h2>
-            <span class="text-xs text-gray-600 font-medium">Q1 2026 · Monthly</span>
+            <h2 class="font-display font-bold text-gray-900 dark:text-white">Sales by Channel</h2>
+            <span class="text-xs text-gray-400 dark:text-gray-600 font-medium">Q1 2026 · Monthly</span>
           </div>
-          <p class="text-xs text-gray-600 mb-5">Comparing Online, Retail &amp; Partner channels</p>
+          <p class="text-xs text-gray-400 dark:text-gray-600 mb-5">Comparing Online, Retail &amp; Partner channels</p>
           <canvas ref="barGrouped" class="max-h-[260px]"></canvas>
         </div>
 
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 animate-fade-up [animation-delay:160ms]">
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 animate-fade-up [animation-delay:160ms]
+        ">
           <div class="flex items-center justify-between mb-1">
-            <h2 class="font-display font-bold text-white">Engagement Trends</h2>
-            <span class="text-xs text-gray-600 font-medium">Last 8 weeks</span>
+            <h2 class="font-display font-bold text-gray-900 dark:text-white">Engagement Trends</h2>
+            <span class="text-xs text-gray-400 dark:text-gray-600 font-medium">Last 8 weeks</span>
           </div>
-          <p class="text-xs text-gray-600 mb-4">Users · Sessions · Pageviews</p>
+          <p class="text-xs text-gray-400 dark:text-gray-600 mb-4">Users · Sessions · Pageviews</p>
           <div class="flex gap-4 mb-4">
-            <span v-for="(l, i) in multiLineLabels" :key="i" class="flex items-center gap-1.5 text-xs text-gray-500">
+            <span v-for="(l, i) in multiLineLabels" :key="i" class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
               <span class="w-5 h-0.5 inline-block rounded" :style="{ background: l.color }"></span>{{ l.name }}
             </span>
           </div>
@@ -137,31 +191,49 @@
       <!-- Stacked Bar + Radar -->
       <section class="grid lg:grid-cols-5 gap-4 mb-8">
 
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 lg:col-span-3 animate-fade-up [animation-delay:80ms]">
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 lg:col-span-3 animate-fade-up [animation-delay:80ms]
+        ">
           <div class="flex items-center justify-between mb-1">
-            <h2 class="font-display font-bold text-white">Revenue Stack</h2>
-            <span class="text-xs text-gray-600 font-medium">By product · weekly</span>
+            <h2 class="font-display font-bold text-gray-900 dark:text-white">Revenue Stack</h2>
+            <span class="text-xs text-gray-400 dark:text-gray-600 font-medium">By product · weekly</span>
           </div>
-          <p class="text-xs text-gray-600 mb-4">Cumulative product contribution per week</p>
+          <p class="text-xs text-gray-400 dark:text-gray-600 mb-4">Cumulative product contribution per week</p>
           <div class="flex flex-wrap gap-3 mb-5">
-            <span v-for="(p, i) in products" :key="i" class="flex items-center gap-1.5 text-xs text-gray-500">
+            <span v-for="(p, i) in products" :key="i" class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
               <span class="w-2.5 h-2.5 rounded-sm inline-block" :style="{ background: p.color }"></span>{{ p.name }}
             </span>
           </div>
           <canvas ref="barStacked" class="max-h-[260px]"></canvas>
         </div>
 
-        <div class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:160ms]">
+        <div class="
+          border border-gray-200 dark:border-slate-700/50
+          bg-white dark:bg-slate-800/60
+          backdrop-blur-sm
+          shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+          hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+          hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+          transition-[border-color,box-shadow] duration-300
+          rounded-2xl p-6 lg:col-span-2 animate-fade-up [animation-delay:160ms]
+        ">
           <div class="flex items-center justify-between mb-1">
-            <h2 class="font-display font-bold text-white">KPI Radar</h2>
-            <span class="text-xs text-gray-600 font-medium">This vs Last Qtr</span>
+            <h2 class="font-display font-bold text-gray-900 dark:text-white">KPI Radar</h2>
+            <span class="text-xs text-gray-400 dark:text-gray-600 font-medium">This vs Last Qtr</span>
           </div>
-          <p class="text-xs text-gray-600 mb-4">Performance across 6 dimensions</p>
+          <p class="text-xs text-gray-400 dark:text-gray-600 mb-4">Performance across 6 dimensions</p>
           <div class="flex gap-4 mb-4">
-            <span class="flex items-center gap-1.5 text-xs text-gray-500">
+            <span class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
               <span class="w-5 h-0.5 rounded inline-block bg-em"></span>Q1 2026
             </span>
-            <span class="flex items-center gap-1.5 text-xs text-gray-500">
+            <span class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
               <span class="w-5 h-0.5 rounded inline-block bg-em/35"></span>Q4 2025
             </span>
           </div>
@@ -170,17 +242,26 @@
       </section>
 
       <!-- Horizontal Bar -->
-      <section class="border border-slate-700/50 bg-slate-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)] hover:border-em/[0.28] hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)] transition-[border-color,box-shadow] duration-300 rounded-2xl p-6 mb-8 animate-fade-up [animation-delay:80ms]">
+      <section class="
+        border border-gray-200 dark:border-slate-700/50
+        bg-white dark:bg-slate-800/60
+        backdrop-blur-sm
+        shadow-sm dark:shadow-[0_0_0_1px_rgba(52,211,153,0.04),inset_0_1px_0_rgba(52,211,153,0.06)]
+        hover:border-emerald-300 dark:hover:border-emerald-400/[0.28]
+        hover:shadow-md dark:hover:shadow-[0_0_24px_rgba(52,211,153,0.07),inset_0_1px_0_rgba(52,211,153,0.1)]
+        transition-[border-color,box-shadow] duration-300
+        rounded-2xl p-6 mb-8 animate-fade-up [animation-delay:80ms]
+      ">
         <div class="flex items-center justify-between mb-1">
-          <h2 class="font-display font-bold text-white">Top Acquisition Sources</h2>
-          <span class="text-xs text-gray-600 font-medium">New users · Q1 2026</span>
+          <h2 class="font-display font-bold text-gray-900 dark:text-white">Top Acquisition Sources</h2>
+          <span class="text-xs text-gray-400 dark:text-gray-600 font-medium">New users · Q1 2026</span>
         </div>
-        <p class="text-xs text-gray-600 mb-6">Ranked by volume of new user acquisition</p>
+        <p class="text-xs text-gray-400 dark:text-gray-600 mb-6">Ranked by volume of new user acquisition</p>
         <canvas ref="barHorizontal" class="max-h-[200px]"></canvas>
       </section>
 
       <!-- Footer -->
-      <footer class="text-center text-xs text-gray-700 py-4 animate-fade-up">
+      <footer class="text-center text-xs text-gray-400 dark:text-gray-700 py-4 animate-fade-up">
         Pulse Analytics · Generated March 30, 2026 · All data is illustrative
       </footer>
 

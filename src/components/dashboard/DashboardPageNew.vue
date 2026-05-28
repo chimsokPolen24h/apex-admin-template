@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex-1 overflow-y-auto p-4 bg-white dark:bg-gray-900 rounded-2xl font-['DM_Sans',sans-serif] transition-colors theme"
+    class="flex-1 overflow-y-auto p-6 bg-white dark:bg-gray-900 font-['DM_Sans',sans-serif] transition-colors theme"
   >
     <!-- Page Header -->
     <div class="flex justify-between items-start mb-6 animate-fadeIn">
@@ -10,7 +10,9 @@
         >
           Good morning, Polen 👋
         </h1>
-        <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 transition-colors">
+        <p
+          class="text-xs text-gray-500 dark:text-slate-400 mt-1 transition-colors"
+        >
           Here's what's happening today.
         </p>
       </div>
@@ -58,10 +60,14 @@
               {{ stat.changePos ? "↑" : "↓" }} {{ Math.abs(stat.change) }}%
             </span>
           </div>
-          <p class="text-[11px] text-gray-600 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors">
+          <p
+            class="text-[11px] text-gray-600 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors"
+          >
             {{ stat.label }}
           </p>
-          <p class="text-xl font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+          <p
+            class="text-xl font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             {{ stat.value }}
           </p>
         </div>
@@ -78,14 +84,20 @@
           class="flex justify-between items-center px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
         >
           <div>
-            <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+            <h2
+              class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+            >
               Revenue Overview
             </h2>
-            <p class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors">
+            <p
+              class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors"
+            >
               Monthly performance — 2024
             </p>
           </div>
-          <div class="flex gap-1 bg-gray-100 dark:bg-slate-700/40 rounded-lg p-0.5 transition-colors">
+          <div
+            class="flex gap-1 bg-gray-100 dark:bg-slate-700/40 rounded-lg p-0.5 transition-colors"
+          >
             <button
               v-for="p in ['1M', '3M', '1Y']"
               :key="p"
@@ -110,11 +122,19 @@
       <div
         class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn overflow-hidden transition-colors theme"
       >
-        <div class="px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors">
-          <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+        <div
+          class="px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+        >
+          <h2
+            class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             Traffic Sources
           </h2>
-          <p class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors">Acquisition channels</p>
+          <p
+            class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors"
+          >
+            Acquisition channels
+          </p>
         </div>
         <div class="flex flex-col items-center p-5">
           <div
@@ -133,7 +153,10 @@
                 class="text-base font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
                 >48%</span
               >
-              <span class="text-[10px] text-gray-600 dark:text-slate-400 transition-colors">Organic</span>
+              <span
+                class="text-[10px] text-gray-600 dark:text-slate-400 transition-colors"
+                >Organic</span
+              >
             </div>
           </div>
           <div class="flex flex-col gap-2.5 w-full">
@@ -146,8 +169,12 @@
                 class="w-2 h-2 rounded-full shrink-0"
                 :style="{ background: src.color }"
               ></div>
-              <span class="text-xs text-gray-700 dark:text-slate-300 flex-1 transition-colors">{{ src.label }}</span>
-              <span class="text-xs font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
+              <span
+                class="text-xs text-gray-700 dark:text-slate-300 flex-1 transition-colors"
+                >{{ src.label }}</span
+              >
+              <span
+                class="text-xs font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
                 >{{ src.pct }}%</span
               >
             </div>
@@ -165,7 +192,9 @@
         <div
           class="flex justify-between items-center px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
         >
-          <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+          <h2
+            class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             Recent Transactions
           </h2>
           <button
@@ -176,7 +205,9 @@
         </div>
         <table class="w-full border-collapse">
           <thead>
-            <tr class="border-b border-gray-200 dark:border-slate-700/50 transition-colors">
+            <tr
+              class="border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+            >
               <th
                 class="px-5 py-3 text-left text-[10px] font-semibold uppercase tracking-widest text-gray-600 dark:text-slate-500 transition-colors"
               >
@@ -213,10 +244,16 @@
                     class="w-7 h-7 rounded-full ring-2 ring-gray-200 dark:ring-slate-700 transition-colors"
                   />
                   <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-tight transition-colors">
+                    <p
+                      class="text-sm font-semibold text-gray-900 dark:text-white leading-tight transition-colors"
+                    >
                       {{ tx.name }}
                     </p>
-                    <p class="text-[11px] text-gray-600 dark:text-slate-500 transition-colors">{{ tx.email }}</p>
+                    <p
+                      class="text-[11px] text-gray-600 dark:text-slate-500 transition-colors"
+                    >
+                      {{ tx.email }}
+                    </p>
                   </div>
                 </div>
               </td>
@@ -225,7 +262,9 @@
               >
                 {{ tx.date }}
               </td>
-              <td class="px-5 py-3.5 text-sm font-bold text-gray-900 dark:text-white tabular-nums transition-colors">
+              <td
+                class="px-5 py-3.5 text-sm font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
+              >
                 {{ tx.amount }}
               </td>
               <td class="px-5 py-3.5">
@@ -245,15 +284,18 @@
       <div
         class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn p-5 transition-colors theme"
       >
-        <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] mb-5 transition-colors">
+        <h2
+          class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] mb-5 transition-colors"
+        >
           Top Products
         </h2>
         <div class="flex flex-col gap-5">
           <div v-for="prod in topProducts" :key="prod.name">
             <div class="flex justify-between items-center mb-1.5">
-              <span class="text-xs font-medium text-gray-800 dark:text-slate-200 transition-colors">{{
-                prod.name
-              }}</span>
+              <span
+                class="text-xs font-medium text-gray-800 dark:text-slate-200 transition-colors"
+                >{{ prod.name }}</span
+              >
               <span
                 class="text-xs font-bold tabular-nums"
                 :style="{ color: prod.color }"
@@ -268,7 +310,9 @@
                 :style="{ width: prod.pct + '%', background: prod.color }"
               ></div>
             </div>
-            <p class="text-[10px] text-gray-600 dark:text-slate-500 mt-1.5 transition-colors">
+            <p
+              class="text-[10px] text-gray-600 dark:text-slate-500 mt-1.5 transition-colors"
+            >
               {{ prod.sales }} sales · {{ prod.revenue }}
             </p>
           </div>
@@ -489,7 +533,7 @@ export default {
     },
 
     barChartOptions() {
-      const isDark = document.documentElement.classList.contains('dark')
+      const isDark = document.documentElement.classList.contains("dark");
       return {
         responsive: true,
         maintainAspectRatio: false,
@@ -513,12 +557,25 @@ export default {
         },
         scales: {
           x: {
-            grid: { color: isDark ? "rgba(30, 41, 59, 0.8)" : "rgba(229, 231, 235, 0.5)", drawBorder: false },
-            ticks: { color: isDark ? "#64748b" : "#9ca3af", font: { size: 9, family: "DM Sans" } },
+            grid: {
+              color: isDark
+                ? "rgba(30, 41, 59, 0.8)"
+                : "rgba(229, 231, 235, 0.5)",
+              drawBorder: false,
+            },
+            ticks: {
+              color: isDark ? "#64748b" : "#9ca3af",
+              font: { size: 9, family: "DM Sans" },
+            },
             border: { display: false },
           },
           y: {
-            grid: { color: isDark ? "rgba(30, 41, 59, 0.8)" : "rgba(229, 231, 235, 0.5)", drawBorder: false },
+            grid: {
+              color: isDark
+                ? "rgba(30, 41, 59, 0.8)"
+                : "rgba(229, 231, 235, 0.5)",
+              drawBorder: false,
+            },
             ticks: {
               color: isDark ? "#64748b" : "#9ca3af",
               font: { size: 9, family: "DM Sans" },
@@ -546,7 +603,7 @@ export default {
     },
 
     doughnutChartOptions() {
-      const isDark = document.documentElement.classList.contains('dark')
+      const isDark = document.documentElement.classList.contains("dark");
       return {
         responsive: true,
         maintainAspectRatio: false,

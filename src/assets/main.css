@@ -1,3 +1,204 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+}
+
+.page-header {
+  @apply flex justify-between items-center mb-6 animate-fadeIn;
+}
+/* Theme transition styles */
+:root {
+  color-scheme: light;
+  transition:
+    background-color 300ms,
+    color 300ms,
+    border-color 300ms;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+/* Global theme-aware components */
+@layer components {
+  /* Page header */
+  /* .page-header {
+    @apply flex justify-between items-center mb-6;
+  } */
+
+  .page-title {
+    @apply text-3xl font-bold text-gray-900 dark:text-white transition-colors;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 dark:hover:bg-emerald-400 text-white rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-95;
+  }
+
+  /* Card container */
+  .card {
+    @apply bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl shadow-sm dark:shadow-lg transition-colors;
+  }
+
+  /* Card toolbar */
+  .card__toolbar {
+    @apply flex gap-3 items-center p-4 border-b border-gray-200 dark:border-slate-700 transition-colors;
+  }
+
+  /* Search input in toolbar */
+  .toolbar-search {
+    @apply flex-1 px-4 py-2.5 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent;
+  }
+
+  /* Select dropdown in toolbar */
+  .toolbar-select {
+    @apply px-4 py-2.5 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-gray-900 dark:text-white transition-colors outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent;
+  }
+
+  /* Data table */
+  .data-table {
+    @apply w-full border-collapse;
+  }
+
+  .data-table thead th {
+    @apply px-5 py-3 text-left text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-slate-400 bg-gray-50 dark:bg-slate-700/50 transition-colors;
+  }
+
+  .data-table tbody td {
+    @apply px-5 py-4 border-b border-gray-200 dark:border-slate-700 transition-colors;
+  }
+
+  .data-table tbody tr {
+    @apply hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors;
+  }
+
+  .data-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  /* User cell */
+  .user-cell {
+    @apply flex items-center gap-3;
+  }
+
+  .cell-avatar {
+    @apply w-8 h-8 rounded-full object-cover;
+  }
+
+  .cell-name {
+    @apply text-sm font-semibold text-gray-900 dark:text-white transition-colors;
+  }
+
+  .cell-sub {
+    @apply text-xs text-gray-600 dark:text-slate-400 transition-colors;
+  }
+
+  .cell-meta {
+    @apply text-sm text-gray-600 dark:text-slate-400 transition-colors;
+  }
+
+  /* Role badge */
+  .role-badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide transition-colors;
+  }
+
+  .role-admin {
+    @apply bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300;
+  }
+
+  .role-editor {
+    @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+  }
+
+  .role-viewer {
+    @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  }
+
+  /* Status indicator */
+  .status-indicator {
+    @apply flex items-center gap-2;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-dot--on {
+    @apply bg-emerald-500;
+  }
+
+  .status-dot--off {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+
+  .text-on {
+    @apply text-sm font-medium text-emerald-700 dark:text-emerald-400 transition-colors;
+  }
+
+  .text-off {
+    @apply text-sm font-medium text-gray-600 dark:text-gray-400 transition-colors;
+  }
+
+  /* Action buttons */
+  .action-btns {
+    @apply flex gap-2;
+  }
+
+  .action-edit,
+  .action-delete {
+    @apply px-3 py-1.5 text-xs font-medium rounded transition-colors;
+  }
+
+  .action-edit {
+    @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50;
+  }
+
+  .action-delete {
+    @apply bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50;
+  }
+
+  /* Card footer */
+  .card__footer {
+    @apply flex justify-between items-center p-4 border-t border-gray-200 dark:border-slate-700 transition-colors;
+  }
+
+  .footer-meta {
+    @apply text-sm text-gray-600 dark:text-slate-400 transition-colors;
+  }
+
+  /* Pagination */
+  .pagination {
+    @apply flex gap-1;
+  }
+
+  .page-btn {
+    @apply px-3 py-1.5 text-sm rounded border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors;
+  }
+
+  .page-btn--active {
+    @apply bg-emerald-500 dark:bg-emerald-600 border-emerald-500 dark:border-emerald-600 text-white;
+  }
+
+  /* Hide small screens */
+  @media (max-width: 640px) {
+    .hide-sm {
+      @apply hidden;
+    }
+  }
+}
