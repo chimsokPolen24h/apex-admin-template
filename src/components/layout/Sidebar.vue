@@ -6,10 +6,16 @@
     ]"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
+    @click.stop
   >
     <!-- LOGO -->
-    <div class="flex items-center justify-center px-3 py-2 border-b border-gray-200 dark:border-dark-border transition-colors">
-      <img class="w-[38px] h-[26px] object-contain" src="../../assets/image/logo-icon.webp" />
+    <div
+      class="flex items-center justify-center px-3 py-2 border-b border-gray-200 dark:border-dark-border transition-colors"
+    >
+      <img
+        class="w-[38px] h-[26px] object-contain"
+        src="../../assets/image/logo-icon.webp"
+      />
       <img
         v-if="expanded"
         class="h-[26px] object-contain whitespace-nowrap ml-2"
@@ -38,7 +44,9 @@
             active-class="bg-emerald-50 dark:bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 border-l-emerald-600 dark:border-l-emerald-400"
           >
             <Icon :icon="item.icon" width="20" height="20" />
-            <span v-if="expanded" class="text-sm whitespace-nowrap">{{ item.label }}</span>
+            <span v-if="expanded" class="text-sm whitespace-nowrap">{{
+              item.label
+            }}</span>
           </router-link>
 
           <!-- WITH SUBMENU -->
@@ -55,8 +63,12 @@
               <!-- ARROW -->
               <span
                 v-if="expanded"
-                :class="['transition-transform duration-200', openMenus[item.label] ? 'rotate-90' : '']"
-              >▸</span>
+                :class="[
+                  'transition-transform duration-200',
+                  openMenus[item.label] ? 'rotate-90' : '',
+                ]"
+                >▸</span
+              >
             </div>
 
             <!-- SUBMENU (EXPANDED) -->
@@ -96,20 +108,32 @@
     </nav>
 
     <!-- USER -->
-    <div class="flex items-center gap-2 p-3 border-t border-gray-200 dark:border-dark-border transition-colors">
+    <div
+      class="flex items-center gap-2 p-3 border-t border-gray-200 dark:border-dark-border transition-colors"
+    >
       <img
         src="../../assets/image/profile2.webp"
         class="w-8 h-8 rounded-full shadow-[0_0_0_2px_#2dd4a0] flex-shrink-0"
       />
       <div v-if="expanded">
-        <p class="text-sm text-gray-900 dark:text-white font-medium transition-colors">Polen Chim</p>
-        <p class="text-xs text-gray-600 dark:text-slate-500 transition-colors">Polen@apex.io</p>
+        <p
+          class="text-sm text-gray-900 dark:text-white font-medium transition-colors"
+        >
+          Polen Chim
+        </p>
+        <p class="text-xs text-gray-600 dark:text-slate-500 transition-colors">
+          Polen@apex.io
+        </p>
       </div>
     </div>
 
     <!-- LICENSE -->
-    <div class="px-3 py-2 border-t border-gray-200 dark:border-dark-border text-center text-[10px] text-gray-600 dark:text-slate-500 transition-colors">
-      <p v-if="expanded">MIT License by ChimSokpolen © {{ new Date().getFullYear() }}</p>
+    <div
+      class="px-3 py-2 border-t border-gray-200 dark:border-dark-border text-center text-[10px] text-gray-600 dark:text-slate-500 transition-colors"
+    >
+      <p v-if="expanded">
+        MIT License by ChimSokpolen © {{ new Date().getFullYear() }}
+      </p>
       <p v-else>MIT</p>
     </div>
   </aside>
@@ -160,7 +184,7 @@ export default {
 
         if (item.children.length > 0) {
           const isActive = item.children.some(
-            (child) => child.to.name === this.$route.name
+            (child) => child.to.name === this.$route.name,
           );
           if (isActive) {
             this.openMenus[item.label] = true;

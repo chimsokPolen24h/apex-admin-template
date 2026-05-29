@@ -10,7 +10,9 @@
         >
           Good morning, Polen 👋
         </h1>
-        <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 transition-colors">
+        <p
+          class="text-xs text-gray-500 dark:text-slate-400 mt-1 transition-colors"
+        >
           Here's what's happening today.
         </p>
       </div>
@@ -30,7 +32,9 @@
     </div>
 
     <!-- Stat Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-5"
+    >
       <div
         v-for="(stat, i) in stats"
         :key="i"
@@ -40,15 +44,15 @@
           class="absolute -top-6 -right-6 w-20 h-20 rounded-full blur-2xl opacity-20 group-hover:opacity-35 transition-opacity"
           :style="{ background: stat.glow }"
         ></div>
-        <div class="relative p-5">
-          <div class="flex justify-between items-center mb-4">
+        <div class="relative p-3 md:p-5">
+          <div class="flex justify-between items-center mb-2 md:mb-4">
             <div
-              class="w-9 h-9 rounded-xl flex items-center justify-center"
+              class="w-8 md:w-9 h-8 md:h-9 rounded-xl flex items-center justify-center"
               :style="{ background: stat.iconBg }"
               v-html="stat.icon"
             ></div>
             <span
-              class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full"
+              class="text-[9px] md:text-[10px] font-bold uppercase px-2 py-0.5 rounded-full"
               :class="
                 stat.changePos
                   ? 'bg-emerald-400/10 text-emerald-400'
@@ -58,10 +62,14 @@
               {{ stat.changePos ? "↑" : "↓" }} {{ Math.abs(stat.change) }}%
             </span>
           </div>
-          <p class="text-[11px] text-gray-600 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors">
+          <p
+            class="text-[9px] md:text-[11px] text-gray-600 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors"
+          >
             {{ stat.label }}
           </p>
-          <p class="text-xl font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+          <p
+            class="text-lg md:text-xl font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             {{ stat.value }}
           </p>
         </div>
@@ -69,23 +77,29 @@
     </div>
 
     <!-- Chart Row -->
-    <div class="grid lg:grid-cols-[1fr_320px] gap-4 mb-5">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-3 md:gap-4 mb-5">
       <!-- Revenue Chart -->
       <div
         class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn overflow-hidden transition-colors theme"
       >
         <div
-          class="flex justify-between items-center px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+          class="flex justify-between items-center px-3 md:px-5 py-3 md:py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
         >
           <div>
-            <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+            <h2
+              class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+            >
               Revenue Overview
             </h2>
-            <p class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors">
+            <p
+              class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors"
+            >
               Monthly performance — 2024
             </p>
           </div>
-          <div class="flex gap-1 bg-gray-100 dark:bg-slate-700/40 rounded-lg p-0.5 transition-colors">
+          <div
+            class="flex gap-1 bg-gray-100 dark:bg-slate-700/40 rounded-lg p-0.5 transition-colors"
+          >
             <button
               v-for="p in ['1M', '3M', '1Y']"
               :key="p"
@@ -101,7 +115,7 @@
             </button>
           </div>
         </div>
-        <div class="px-4 pb-4 pt-3" style="height: 210px; position: relative">
+        <div class="px-3 md:px-4 pb-3 md:pb-4 pt-2 md:pt-3" style="height: 180px; md:height: 210px; position: relative">
           <Bar :data="barChartData" :options="barChartOptions" />
         </div>
       </div>
@@ -110,16 +124,24 @@
       <div
         class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn overflow-hidden transition-colors theme"
       >
-        <div class="px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors">
-          <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+        <div
+          class="px-3 md:px-5 py-3 md:py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+        >
+          <h2
+            class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             Traffic Sources
           </h2>
-          <p class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors">Acquisition channels</p>
+          <p
+            class="text-xs text-gray-600 dark:text-slate-400 mt-0.5 transition-colors"
+          >
+            Acquisition channels
+          </p>
         </div>
-        <div class="flex flex-col items-center p-5">
+        <div class="flex flex-col items-center p-3 md:p-5">
           <div
-            class="relative mb-5"
-            style="width: 150px; height: 150px; position: relative"
+            class="relative mb-3 md:mb-5"
+            style="width: 140px; height: 140px; md:width: 150px; md:height: 150px; position: relative"
           >
             <Doughnut
               :data="doughnutChartData"
@@ -133,7 +155,10 @@
                 class="text-base font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
                 >48%</span
               >
-              <span class="text-[10px] text-gray-600 dark:text-slate-400 transition-colors">Organic</span>
+              <span
+                class="text-[10px] text-gray-600 dark:text-slate-400 transition-colors"
+                >Organic</span
+              >
             </div>
           </div>
           <div class="flex flex-col gap-2.5 w-full">
@@ -146,8 +171,12 @@
                 class="w-2 h-2 rounded-full shrink-0"
                 :style="{ background: src.color }"
               ></div>
-              <span class="text-xs text-gray-700 dark:text-slate-300 flex-1 transition-colors">{{ src.label }}</span>
-              <span class="text-xs font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
+              <span
+                class="text-xs text-gray-700 dark:text-slate-300 flex-1 transition-colors"
+                >{{ src.label }}</span
+              >
+              <span
+                class="text-xs font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
                 >{{ src.pct }}%</span
               >
             </div>
@@ -157,15 +186,17 @@
     </div>
 
     <!-- Bottom Row -->
-    <div class="grid lg:grid-cols-[1fr_280px] gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-3 md:gap-4">
       <!-- Transactions -->
       <div
         class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn overflow-hidden transition-colors theme"
       >
         <div
-          class="flex justify-between items-center px-5 py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+          class="flex justify-between items-center px-3 md:px-5 py-3 md:py-4 border-b border-gray-200 dark:border-slate-700/50 transition-colors"
         >
-          <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors">
+          <h2
+            class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] transition-colors"
+          >
             Recent Transactions
           </h2>
           <button
@@ -174,9 +205,13 @@
             View all →
           </button>
         </div>
-        <table class="w-full border-collapse">
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse"
+>
           <thead>
-            <tr class="border-b border-gray-200 dark:border-slate-700/50 transition-colors">
+            <tr
+              class="border-b border-gray-200 dark:border-slate-700/50 transition-colors"
+            >
               <th
                 class="px-5 py-3 text-left text-[10px] font-semibold uppercase tracking-widest text-gray-600 dark:text-slate-500 transition-colors"
               >
@@ -213,10 +248,16 @@
                     class="w-7 h-7 rounded-full ring-2 ring-gray-200 dark:ring-slate-700 transition-colors"
                   />
                   <div>
-                    <p class="text-sm font-semibold text-gray-900 dark:text-white leading-tight transition-colors">
+                    <p
+                      class="text-sm font-semibold text-gray-900 dark:text-white leading-tight transition-colors"
+                    >
                       {{ tx.name }}
                     </p>
-                    <p class="text-[11px] text-gray-600 dark:text-slate-500 transition-colors">{{ tx.email }}</p>
+                    <p
+                      class="text-[11px] text-gray-600 dark:text-slate-500 transition-colors"
+                    >
+                      {{ tx.email }}
+                    </p>
                   </div>
                 </div>
               </td>
@@ -225,7 +266,9 @@
               >
                 {{ tx.date }}
               </td>
-              <td class="px-5 py-3.5 text-sm font-bold text-gray-900 dark:text-white tabular-nums transition-colors">
+              <td
+                class="px-5 py-3.5 text-sm font-bold text-gray-900 dark:text-white tabular-nums transition-colors"
+              >
                 {{ tx.amount }}
               </td>
               <td class="px-5 py-3.5">
@@ -239,21 +282,25 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
 
       <!-- Top Products -->
       <div
-        class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn p-5 transition-colors theme"
+        class="bg-white dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700/50 backdrop-blur-sm rounded-2xl animate-fadeIn p-3 md:p-5 transition-colors theme"
       >
-        <h2 class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] mb-5 transition-colors">
+        <h2
+          class="text-sm font-bold text-gray-900 dark:text-white font-['Syne',sans-serif] mb-3 md:mb-5 transition-colors"
+        >
           Top Products
         </h2>
         <div class="flex flex-col gap-5">
           <div v-for="prod in topProducts" :key="prod.name">
             <div class="flex justify-between items-center mb-1.5">
-              <span class="text-xs font-medium text-gray-800 dark:text-slate-200 transition-colors">{{
-                prod.name
-              }}</span>
+              <span
+                class="text-xs font-medium text-gray-800 dark:text-slate-200 transition-colors"
+                >{{ prod.name }}</span
+              >
               <span
                 class="text-xs font-bold tabular-nums"
                 :style="{ color: prod.color }"
@@ -268,7 +315,9 @@
                 :style="{ width: prod.pct + '%', background: prod.color }"
               ></div>
             </div>
-            <p class="text-[10px] text-gray-600 dark:text-slate-500 mt-1.5 transition-colors">
+            <p
+              class="text-[10px] text-gray-600 dark:text-slate-500 mt-1.5 transition-colors"
+            >
               {{ prod.sales }} sales · {{ prod.revenue }}
             </p>
           </div>
@@ -489,7 +538,7 @@ export default {
     },
 
     barChartOptions() {
-      const isDark = document.documentElement.classList.contains('dark')
+      const isDark = document.documentElement.classList.contains("dark");
       return {
         responsive: true,
         maintainAspectRatio: false,
@@ -513,12 +562,25 @@ export default {
         },
         scales: {
           x: {
-            grid: { color: isDark ? "rgba(30, 41, 59, 0.8)" : "rgba(229, 231, 235, 0.5)", drawBorder: false },
-            ticks: { color: isDark ? "#64748b" : "#9ca3af", font: { size: 9, family: "DM Sans" } },
+            grid: {
+              color: isDark
+                ? "rgba(30, 41, 59, 0.8)"
+                : "rgba(229, 231, 235, 0.5)",
+              drawBorder: false,
+            },
+            ticks: {
+              color: isDark ? "#64748b" : "#9ca3af",
+              font: { size: 9, family: "DM Sans" },
+            },
             border: { display: false },
           },
           y: {
-            grid: { color: isDark ? "rgba(30, 41, 59, 0.8)" : "rgba(229, 231, 235, 0.5)", drawBorder: false },
+            grid: {
+              color: isDark
+                ? "rgba(30, 41, 59, 0.8)"
+                : "rgba(229, 231, 235, 0.5)",
+              drawBorder: false,
+            },
             ticks: {
               color: isDark ? "#64748b" : "#9ca3af",
               font: { size: 9, family: "DM Sans" },
@@ -546,7 +608,7 @@ export default {
     },
 
     doughnutChartOptions() {
-      const isDark = document.documentElement.classList.contains('dark')
+      const isDark = document.documentElement.classList.contains("dark");
       return {
         responsive: true,
         maintainAspectRatio: false,

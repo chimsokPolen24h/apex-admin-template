@@ -10,6 +10,16 @@ import Login from "../components/auth/signing.vue";
 import Signup from "../components/auth/signup.vue";
 import Signing from "../components/auth/signing.vue";
 import Reports from "../views/Reports.vue";
+import List from "../views/Invoices/List.vue";
+import Detail from "../views/Invoices/Detail.vue";
+import Edit from "../views/Invoices/Edit.vue";
+import Create from "../views/Invoices/Create.vue";
+import Ticket from "../views/Ticket.vue";
+import Customer from "../views/Customer.vue";
+import Order from "../views/Order.vue";
+import Pos from "../views/Pos.vue";
+import ErrorPage from "../views/Management/errorPage.vue";
+import TwoStep from "../views/Management/two-step.vue";
 
 const routes = [
   {
@@ -38,7 +48,7 @@ const routes = [
       },
     },
   },
-   {
+  {
     path: "/report",
     name: "report",
     component: Reports,
@@ -63,14 +73,124 @@ const routes = [
         group: "Management",
         children: [
           {
-            label: 'UserSetting',
-            to: { name: 'userSetting' },
+            label: "UserSetting",
+            to: { name: "userSetting" },
           },
           {
             label: "Profile",
             to: { name: "userProfile" },
           },
         ],
+      },
+    },
+  },
+  {
+    path: "/error",
+    name: "error",
+    component: ErrorPage,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Error",
+        icon: "iconoir:password-error",
+        group: "Management",
+      },
+    },
+  },
+   {
+    path: "/two-ver",
+    name: "two-ver",
+    component: TwoStep,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Two-Steps",
+        icon: "bitcoin-icons:verify-outline",
+        group: "Management",
+      },
+    },
+  },
+  {
+    path: "/app",
+    name: "apps",
+    component: User,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Invoice",
+        icon: "hugeicons:invoice-03",
+        group: "APPS",
+        children: [
+          {
+            label: "List",
+            to: { name: "List" },
+          },
+          {
+            label: "Detail",
+            to: { name: "Detail" },
+          },
+          {
+            label: "Create",
+            to: { name: "Create" },
+          },
+          {
+            label: "Edit",
+            to: { name: "Edit" },
+          },
+        ],
+      },
+    },
+  },
+
+  {
+    path: "/ticket",
+    name: "ticket",
+    component: Ticket,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Ticket",
+        icon: "solar:ticket-line-duotone",
+        group: "APPS",
+      },
+    },
+  },
+  {
+    path: "/customer",
+    name: "customer",
+    component: Customer,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Customer",
+        icon: "streamline-freehand:customer-action-product-message",
+        group: "APPS",
+      },
+    },
+  },
+  {
+    path: "/order",
+    name: "order",
+    component: Order,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "Order",
+        icon: "material-symbols:order-play",
+        group: "APPS",
+      },
+    },
+  },
+   {
+    path: "/pos",
+    name: "pos",
+    component: Pos,
+    meta: {
+      // requiresAuth: true,
+      menu: {
+        label: "POS",
+        icon: "mdi:network-pos",
+        group: "APPS",
       },
     },
   },
@@ -83,6 +203,26 @@ const routes = [
     },
   },
   {
+    path: "/invoice/list",
+    name: "List",
+    component: List,
+  },
+  {
+    path: "/invoice/detail",
+    name: "Detail",
+    component: Detail,
+  },
+  {
+    path: "/invoice/edit",
+    name: "Edit",
+    component: Edit,
+  },
+  {
+    path: "/invoice/create",
+    name: "Create",
+    component: Create,
+  },
+  {
     path: "/user/profile",
     name: "userProfile",
     component: UserProfile,
@@ -90,21 +230,21 @@ const routes = [
       // requiresAuth: true,
     },
   },
-    {
+  {
     path: "/auth",
     name: "Authentication",
     component: User,
     meta: {
       // requiresAuth: true,
-      hideLayout: true ,
+      hideLayout: true,
       menu: {
         label: "Authentication",
         icon: "mdi:login-variant",
         group: "Management",
         children: [
           {
-            label: 'signin',
-            to: { name: 'Signin' },
+            label: "signin",
+            to: { name: "Signin" },
           },
           {
             label: "signup",
@@ -120,15 +260,15 @@ const routes = [
     component: Signing,
     meta: {
       // requiresAuth: true,
-      hideLayout: true ,
+      hideLayout: true,
     },
   },
-   {
+  {
     path: "/signup",
     name: "Signup",
     component: Signup,
     meta: {
-      hideLayout: true ,
+      hideLayout: true,
       // requiresAuth: true,
     },
   },
@@ -140,7 +280,7 @@ const routes = [
       // requiresAuth: true,
       menu: {
         label: "Settings",
-        icon: "lucide:sun",
+        icon: "lets-icons:setting-line",
         group: "System",
       },
     },
