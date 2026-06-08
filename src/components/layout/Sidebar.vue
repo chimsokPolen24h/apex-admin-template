@@ -24,7 +24,7 @@
     </div>
 
     <!-- NAV -->
-    <nav class="flex-1 overflow-y-auto py-4">
+    <nav class="flex-1 overflow-y-auto py-4 scrollbar-hide">
       <div v-for="group in navGroups" :key="group.label" class="mb-5">
         <!-- GROUP LABEL -->
         <p
@@ -218,5 +218,15 @@ export default {
 <style scoped>
 .theme {
   transition-duration: 300ms;
+}
+
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 </style>
